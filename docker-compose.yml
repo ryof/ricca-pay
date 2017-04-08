@@ -1,0 +1,12 @@
+app:
+  build: app
+  links:
+    - db
+db:
+  image: mysql
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  ports:
+    - "3306:3306"
+  volumes:
+    - "./db:/docker-entrypoint-initdb.d"
